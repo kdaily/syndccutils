@@ -20,6 +20,7 @@ Imports:
     xml2,
     rlang,
     jsonlite,
-    openssl
+    openssl,
+    DT
     
     
