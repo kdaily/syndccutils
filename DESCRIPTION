@@ -17,6 +17,9 @@ Imports:
     fs,
     rvest,
     httr,
-    xml2
+    xml2,
+    rlang,
+    jsonlite,
+    openssl
     
     
