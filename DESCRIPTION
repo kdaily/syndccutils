@@ -21,6 +21,7 @@ Imports:
     rlang,
     jsonlite,
     openssl,
-    DT
-    
-    
+    DT,
+    synapser
+Additional_repositories:
+    https://sage-bionetworks.github.io/ran
