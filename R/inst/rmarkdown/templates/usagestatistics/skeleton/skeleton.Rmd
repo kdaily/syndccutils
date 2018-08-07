@@ -13,12 +13,12 @@ params:
 
 ```{r libs, echo=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
-library(synapseClient)
+library(synapser)
 library(RMySQL)
 library(yaml)
-source("lib.R")
+library(syndccutils)
 
-synapseLogin()
+synLogin(silent=TRUE)
 
 options(xtable.type="html")
 
@@ -52,7 +52,7 @@ useTeamGrouping <- params$useTeamGrouping
 aclTeamOrder <- params$aclTeamOrder
 
 if (useTeamGrouping) {
-  aclUserList <- processAclUserList(projectId, aclTeamOrder)
+  aclUserList <- syndccutils::processAclUserList(projectId, aclTeamOrder)
 } else {
   aclUserList <- NULL
 }
