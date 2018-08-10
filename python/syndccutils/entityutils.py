@@ -38,7 +38,7 @@ def deleteEntityVersions(syn, entity, versions=None, dryRun=False):
     else:
         map(lambda x: deleteWithRetry(syn, obj=x['id'], version=x['versionNumber']), entityVersions)
 
-# def deleteVersionsFromFileView(syn, fileViewId):
-#     d = syn.tableQuery("SELECT id FROM %s where currentVersion > 1" % ("syn15590308")).asDataFrame()
-#     pool = multiprocessing.dummy.Pool(8)
-#     pool.map(lambda x: deleteEntityVersions(syn, x, dryRun=False), d.id.tolist())
+def deleteVersionsFromEntities(syn, entityIds):
+    """Delete all versions except first from a list of entities."""    
+    pool = multiprocessing.dummy.Pool(8)
+    pool.map(lambda x: deleteEntityVersions(syn, x, dryRun=False), entityIds)
