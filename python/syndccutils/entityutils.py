@@ -42,13 +42,3 @@ def deleteEntityVersions(syn, entity, versions=None, dryRun=False):
 #     d = syn.tableQuery("SELECT id FROM %s where currentVersion > 1" % ("syn15590308")).asDataFrame()
 #     pool = multiprocessing.dummy.Pool(8)
 #     pool.map(lambda x: deleteEntityVersions(syn, x, dryRun=False), d.id.tolist())
-
-
-import synapseclient
-import multiprocessing
-import syndccutils.entityutils
-
-syn = synapseclient.login(silent=True)
-pool = multiprocessing.dummy.Pool(8)
-d = syn.tableQuery("SELECT id FROM %s where currentVersion > 1" % ("syn15590308")).asDataFrame()
-# foo = pool.map(lambda x: syndccutils.entityutils.deleteEntityVersions(syn, x, dryRun=False), d.id.tolist())
